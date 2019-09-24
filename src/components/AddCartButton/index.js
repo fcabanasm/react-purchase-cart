@@ -14,11 +14,8 @@ export class AddCartButton extends Component {
 
   static defaultProps = {
     addLabel: "Add to Cart",
-    styles: {
-      backgroundColor: "#17a2b8",
-      color: "white",
-      border: "0"
-    }
+    style: {},
+    className: ""
   };
 
   addProductToCart = (event, product) => {
@@ -27,11 +24,12 @@ export class AddCartButton extends Component {
   };
 
   render() {
-    const { product, styles, addLabel } = this.props;
+    const { product, style, addLabel, className } = this.props;
     return (
       <div>
         <button
-          style={{ ...styles }}
+          style={style}
+          className={className}
           onClick={event => this.addProductToCart(event, product)}
         >
           {addLabel}

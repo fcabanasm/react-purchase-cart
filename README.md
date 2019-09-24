@@ -86,7 +86,16 @@ class Example extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Cart currency="USD" handleCheckout={this.handleCheckout} />
+        <Cart
+          currencySymbol="CLP"
+          language="es-CL"
+          handleCheckout={handleCheckout}
+          cartEmptyLabel={"El carrito está vacio"}
+          cartTextLabel={"Carrito de compras"}
+          checkoutTextLabel={"Ir a pagar"}
+          subTotalTextLabel={"Total"}
+          quantityTextLabel={"Cantidad"}
+        />
         <div>
           {products.map((product, key) => {
             return (
@@ -95,14 +104,7 @@ class Example extends Component {
                   <div className="pi-pic">
                     <img src={product.image} alt={product.name} />
                     <div className="pi-links">
-                      <AddCartButton
-                        product={product}
-                        styles={{
-                          backgroundColor: "#009688",
-                          color: "white",
-                          border: "0"
-                        }}
-                      />
+                      <AddCartButton product={product} />
                     </div>
                   </div>
                   <div className="pi-text">
@@ -138,11 +140,12 @@ export default ShopingCart;
 
 ### AddCartButton
 
-| Name     | Type                    | Default       | Description                                       |
-| -------- | ----------------------- | ------------- | ------------------------------------------------- |
-| product  | Object                  | null          | (Required) Product object to be added to the cart |
-| styles   | Array[Object] \| Object | `[{}]`        | The style used for button                         |
-| addLabel | string                  | `Add to Cart` | A add cart button text                            |
+| Name      | Type   | Default       | Description                                       |
+| --------- | ------ | ------------- | ------------------------------------------------- |
+| product   | Object | null          | (Required) Product object to be added to the cart |
+| style     | Object | `{}`          | The style used for button                         |
+| className | string | ""            | Classes used for button                           |
+| addLabel  | string | `Add to Cart` | A add cart button text                            |
 
 Type: [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
