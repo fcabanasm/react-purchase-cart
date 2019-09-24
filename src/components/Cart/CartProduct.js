@@ -9,6 +9,7 @@ class CartProduct extends Component {
     product: PropTypes.object.isRequired,
     removeProduct: PropTypes.func.isRequired,
     currencySymbol: PropTypes.string.isRequired,
+    language: PropTypes.string.isRequired,
     quantityTextLabel: PropTypes.string.isRequired
   };
 
@@ -29,6 +30,7 @@ class CartProduct extends Component {
       product,
       removeProduct,
       currencySymbol,
+      language,
       quantityTextLabel
     } = this.props;
     const classes = ["shelf-item"];
@@ -57,7 +59,7 @@ class CartProduct extends Component {
           </p>
         </div>
         <div className="shelf-item__price">
-          <p>{formatPrice(product.price, currencySymbol)}</p>
+          <p>{formatPrice(product.price, currencySymbol, language)}</p>
         </div>
       </div>
     );

@@ -13,7 +13,12 @@ export class AddCartButton extends Component {
   };
 
   static defaultProps = {
-    addLabel: "Add to Cart"
+    addLabel: "Add to Cart",
+    styles: {
+      backgroundColor: "#17a2b8",
+      color: "white",
+      border: "0"
+    }
   };
 
   addProductToCart = (event, product) => {

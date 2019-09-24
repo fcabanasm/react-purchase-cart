@@ -16,31 +16,44 @@ const products = [
     id: 1,
     name: "Flamboyant Pink Top",
     sku: "kskskskks",
-    price: 200.0
+    price: 2000
   },
   {
     id: 2,
     name: "Black and White Stripes Dress",
     sku: "kskskskks",
-    price: 300.0
+    price: 3000
   },
   {
     id: 3,
     name: "Flamboyant Pink Top",
     sku: "kskskskks",
-    price: 400.0
+    price: 10000
   },
   {
     id: 4,
     name: "Flamboyant Pink Top",
     sku: "kskskskks",
-    price: 400.0
+    price: 5000
   }
 ];
 
+const handleCheckout = data => {
+  console.log(data);
+};
+
 ReactDOM.render(
   <Provider store={store}>
-    <Cart />
+    <Cart
+      currencySymbol="CLP"
+      language="es-CL"
+      handleCheckout={handleCheckout}
+      cartEmptyLabel={"El carrito está vacio"}
+      cartTextLabel={"Carrito de compras"}
+      checkoutTextLabel={"Ir a pagar"}
+      subTotalTextLabel={"Total"}
+      quantityTextLabel={"Cantidad"}
+    />
     <div>
       {products.map((product, key) => {
         return (
@@ -49,14 +62,7 @@ ReactDOM.render(
               <div className="pi-pic">
                 <img src={product.image} alt={product.name} />
                 <div className="pi-links">
-                  <AddCartButton
-                    product={product}
-                    styles={{
-                      backgroundColor: "#009688",
-                      color: "white",
-                      border: "0"
-                    }}
-                  />
+                  <AddCartButton product={product} />
                 </div>
               </div>
               <div className="pi-text">

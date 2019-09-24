@@ -125,14 +125,16 @@ export default ShopingCart;
 
 ### Cart Component
 
-| Name              | Type     | Default     | Description                                                                                                |
-| ----------------- | -------- | ----------- | ---------------------------------------------------------------------------------------------------------- |
-| currencySymbol    | string   | `USD`       | Currency symbol to be used                                                                                 |
-| checkoutTextLabel | string   | `Checkout`  | A checkout button text on the cart                                                                         |
-| cartTextLabel     | string   | `Your Cart` | A cart header title                                                                                        |
-| subTotalTextLabel | string   | `Sub Total` | Cart - Sub Total Text                                                                                      |
-| quantityTextLabel | string   | `Quantity`  | Cart - Product Qty Text                                                                                    |
-| handleCheckout    | Function | null        | `handleCheckout` will be triggered when `checkoutLabel` button is clicked and return cart products object. |
+| Name              | Type     | Default                         | Description                                                                                                |
+| ----------------- | -------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| currencySymbol    | string   | `USD`                           | Currency symbol to be used                                                                                 |
+| language          | string   | `en-US`                         | language to be used in currencies                                                                          |
+| checkoutTextLabel | string   | `Checkout`                      | A checkout button text on the cart                                                                         |
+| cartTextLabel     | string   | `Your Cart`                     | Cart - Header title                                                                                        |
+| cartEmptyLabel    | string   | `Add some products in the cart` | Cart - Empty message                                                                                       |
+| subTotalTextLabel | string   | `Sub Total`                     | Cart - Sub Total Text                                                                                      |
+| quantityTextLabel | string   | `Quantity`                      | Cart - Product Qty Text                                                                                    |
+| handleCheckout    | Function | null                            | `handleCheckout` will be triggered when `checkoutLabel` button is clicked and return cart products object. |
 
 ### AddCartButton
 

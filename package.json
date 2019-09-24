@@ -1,6 +1,6 @@
 {
   "name": "react-purchase-cart",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A react shopping cart components",
   "author": "Dennis Paler",
   "license": "MIT",
@@ -18,9 +18,9 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "start-dev": "react-scripts start",
-    "prepare": "npm run build",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "prepare": "yarn run build",
+    "predeploy": "yarn install && yarn run build",
+    "deploy": "gh-pages -d /dist"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",

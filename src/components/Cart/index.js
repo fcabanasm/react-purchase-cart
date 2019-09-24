@@ -18,6 +18,7 @@ export class Cart extends Component {
     removeProduct: PropTypes.func,
     productToRemove: PropTypes.object,
     currencySymbol: PropTypes.string,
+    language: PropTypes.string,
     handleCheckout: PropTypes.func,
     checkoutTextLabel: PropTypes.string,
     cartTextLabel: PropTypes.string,
@@ -27,10 +28,12 @@ export class Cart extends Component {
 
   static defaultProps = {
     currencySymbol: "USD",
+    language: "en-US",
     checkoutTextLabel: "Checkout",
     cartTextLabel: "Your Cart",
     subTotalTextLabel: "Sub Total",
-    quantityTextLabel: "Quantity"
+    quantityTextLabel: "Quantity",
+    cartEmptyLabel: "Add some products in the cart"
   };
 
   state = {
@@ -110,10 +113,12 @@ export class Cart extends Component {
       cartProducts,
       removeProduct,
       currencySymbol,
+      language,
       checkoutTextLabel,
       cartTextLabel,
       subTotalTextLabel,
-      quantityTextLabel
+      quantityTextLabel,
+      cartEmptyLabel
     } = this.props;
 
     const products =
@@ -121,6 +126,7 @@ export class Cart extends Component {
       cartProducts.map(product => {
         return (
           <CartProduct
+            language={language}
             product={product}
             removeProduct={removeProduct}
             currencySymbol={currencySymbol}
@@ -157,20 +163,17 @@ export class Cart extends Component {
 
         <div className="float-cart__content">
           <div className="float-cart__header">
+            <span className="header-title">{cartTextLabel}</span>
             <span className="bag">
               <span className="bag__quantity">{cartTotal.productQuantity}</span>
             </span>
-            <span className="header-title">{cartTextLabel}</span>
           </div>
 
           <div className="float-cart__shelf-container">
             {products}
             {cartProducts === undefined ||
               (cartProducts.length === 0 && (
-                <p className="shelf-empty">
-                  Add some products in the cart <br />
-                  :)
-                </p>
+                <p className="shelf-empty">{cartEmptyLabel}</p>
               ))}
           </div>
 
@@ -178,7 +181,11 @@ export class Cart extends Component {
             <div className="sub">{subTotalTextLabel}</div>
             <div className="sub-price">
               <p className="sub-price__val">
-                {`${formatPrice(cartTotal.totalPrice, currencySymbol)}`}
+                {`${formatPrice(
+                  cartTotal.totalPrice,
+                  currencySymbol,
+                  language
+                )}`}
               </p>
             </div>
             <div onClick={this.clickCheckout} className="continue-btn">
