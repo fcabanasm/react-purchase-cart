@@ -105,6 +105,7 @@ export class Cart extends Component {
       total: cartTotal
     };
     handleCheckout(data);
+    storage().delete();
   };
 
   render() {
@@ -142,6 +143,28 @@ export class Cart extends Component {
       classes.push("purchase-float-open");
     }
 
+    const renderTotal = () => {
+      if (cartTotal.productQuantity > 0) {
+        return (
+          <div className="purchase-float-cart__footer">
+            <div className="sub">{subTotalTextLabel}</div>
+            <div className="sub-price">
+              <p className="sub-price__val">
+                {`${formatPrice(
+                  cartTotal.totalPrice,
+                  currencySymbol,
+                  language
+                )}`}
+              </p>
+            </div>
+            <div onClick={this.clickCheckout} className="continue-btn">
+              {checkoutTextLabel}
+            </div>
+          </div>
+        );
+      }
+    };
+
     return (
       <div className={classes.join(" ")}>
         {this.state.isOpen && (
@@ -175,25 +198,15 @@ export class Cart extends Component {
             {products}
             {cartProducts === undefined ||
               (cartProducts.length === 0 && (
-                <p className="shelf-empty">{cartEmptyLabel}</p>
+                <div className="shelf-empty">
+                  <span>{cartEmptyLabel}</span>
+                  <div>
+                    <i className="far fa-5x fa-frown" />
+                  </div>
+                </div>
               ))}
           </div>
-
-          <div className="purchase-float-cart__footer">
-            <div className="sub">{subTotalTextLabel}</div>
-            <div className="sub-price">
-              <p className="sub-price__val">
-                {`${formatPrice(
-                  cartTotal.totalPrice,
-                  currencySymbol,
-                  language
-                )}`}
-              </p>
-            </div>
-            <div onClick={this.clickCheckout} className="continue-btn">
-              {checkoutTextLabel}
-            </div>
-          </div>
+          {renderTotal()}
         </div>
       </div>
     );
