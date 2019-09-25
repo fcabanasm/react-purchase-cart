@@ -47,7 +47,7 @@ class CartProduct extends Component {
           onMouseOut={() => this.handleMouseOut()}
           onClick={() => removeProduct(product)}
         >
-          <i class="far fa-trash-alt text-danger"></i>
+          <i className="far fa-trash-alt text-danger"></i>
         </div>
         <Thumb classes="shelf-item__thumb text-center" product={product} />
         <div className="shelf-item__details">

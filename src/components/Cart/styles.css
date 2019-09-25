@@ -1,6 +1,6 @@
 /* add css styles here (optional) */
 
-.float {
+.purchase-float {
   position: fixed;
   top: 0px;
   right: -450px;
@@ -14,11 +14,11 @@
   transition: all 400ms ease-in-out;
 }
 
-.float-open {
+.purchase-float-open {
   right: 0 !important;
 }
 
-.float-close-btn {
+.purchase-float-close-btn {
   width: 50px;
   height: 50px;
   color: #ececec;
@@ -72,7 +72,7 @@
   right: 7px;
 }
 
-.float-cart__header {
+.purchase-float-cart__header {
   box-sizing: border-box;
   text-align: center;
   padding: 45px 0;
@@ -82,7 +82,7 @@
   vertical-align: middle;
 }
 
-.float-cart__shelf-container {
+.purchase-float-cart__shelf-container {
   position: relative;
   min-height: 280px;
   padding-bottom: 200px;
@@ -157,7 +157,7 @@
   padding-top: 1em;
 }
 
-.float-cart__footer {
+.purchase-float-cart__footer {
   box-sizing: border-box;
   padding: 5%;
   position: absolute;
@@ -186,17 +186,17 @@
 }
 
 @media screen and (min-width: 640px) {
-  .float-cart__content::-webkit-scrollbar {
+  .purchase-float-cart__content::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 10px;
     padding: 10px;
   }
-  .float-cart__content::-webkit-scrollbar-thumb {
+  .purchase-float-cart__content::-webkit-scrollbar-thumb {
     border-radius: 4px;
   }
 }
 
-.float-cart__content {
+.purchase-float-cart__content {
   height: 100%;
   overflow-y: scroll;
 }

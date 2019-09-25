@@ -16,13 +16,18 @@ const products = [
     id: 1,
     name: "Flamboyant Pink Top",
     sku: "kskskskks",
-    price: 2000
+    price: 2000,
+    thumb: { type: "icon", classes: "fa fa-2x fa-cogs" }
   },
   {
     id: 2,
     name: "Black and White Stripes Dress",
     sku: "kskskskks",
-    price: 3000
+    price: 3000,
+    thumb: {
+      type: "image",
+      src: "https://colorlib.com/preview/theme/divisima/img/product/2.jpg"
+    }
   },
   {
     id: 3,
@@ -60,7 +65,6 @@ ReactDOM.render(
           <div className="col" key={key}>
             <div className="product-item">
               <div className="pi-pic">
-                <img src={product.image} alt={product.name} />
                 <div className="pi-links">
                   <AddCartButton product={product} />
                 </div>

@@ -52,29 +52,30 @@ const products = [
     id: 1,
     name: "Flamboyant Pink Top",
     sku: "kskskskks",
-    price: 200.0,
-    image: "https://colorlib.com/preview/theme/divisima/img/product/6.jpg"
+    price: 2000,
+    thumb: { type: "icon", classes: "fa fa-2x fa-cogs" }
   },
   {
     id: 2,
     name: "Black and White Stripes Dress",
     sku: "kskskskks",
-    price: 300.0,
-    image: "https://colorlib.com/preview/theme/divisima/img/product/5.jpg"
+    price: 3000,
+    thumb: {
+      type: "image",
+      src: "https://colorlib.com/preview/theme/divisima/img/product/2.jpg"
+    }
   },
   {
     id: 3,
     name: "Flamboyant Pink Top",
     sku: "kskskskks",
-    price: 400.0,
-    image: "https://colorlib.com/preview/theme/divisima/img/product/7.jpg"
+    price: 10000
   },
   {
     id: 4,
     name: "Flamboyant Pink Top",
     sku: "kskskskks",
-    price: 400.0,
-    image: "https://colorlib.com/preview/theme/divisima/img/product/8.jpg"
+    price: 5000
   }
 ];
 
@@ -102,7 +103,6 @@ class Example extends Component {
               <div className="col" key={key}>
                 <div className="product-item">
                   <div className="pi-pic">
-                    <img src={product.image} alt={product.name} />
                     <div className="pi-links">
                       <AddCartButton product={product} />
                     </div>

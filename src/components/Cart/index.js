@@ -136,10 +136,10 @@ export class Cart extends Component {
         );
       });
 
-    let classes = ["float"];
+    let classes = ["purchase-float"];
 
     if (!!this.state.isOpen) {
-      classes.push("float-open");
+      classes.push("purchase-float-open");
     }
 
     return (
@@ -147,7 +147,7 @@ export class Cart extends Component {
         {this.state.isOpen && (
           <div
             onClick={() => this.closeFloatCart()}
-            className="float-close-btn"
+            className="purchase-float-close-btn"
           >
             X
           </div>
@@ -161,8 +161,8 @@ export class Cart extends Component {
           </span>
         )}
 
-        <div className="float-cart__content">
-          <div className="float-cart__header">
+        <div className="purchase-float-cart__content">
+          <div className="purchase-float-cart__header">
             <span className="header-title font-weight-bold h4">
               {cartTextLabel}
             </span>
@@ -171,7 +171,7 @@ export class Cart extends Component {
             </span>
           </div>
 
-          <div className="float-cart__shelf-container">
+          <div className="purchase-float-cart__shelf-container">
             {products}
             {cartProducts === undefined ||
               (cartProducts.length === 0 && (
@@ -179,7 +179,7 @@ export class Cart extends Component {
               ))}
           </div>
 
-          <div className="float-cart__footer">
+          <div className="purchase-float-cart__footer">
             <div className="sub">{subTotalTextLabel}</div>
             <div className="sub-price">
               <p className="sub-price__val">
