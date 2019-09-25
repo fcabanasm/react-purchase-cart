@@ -1,19 +1,32 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
 const Thumb = props => {
-  return (
-    <div className={props.classes}>
-      <img src={props.src} alt={props.alt} title={props.title} />
-    </div>
-  );
+  var thumb;
+  if (props.product.thumb) {
+    switch (props.product.thumb.type) {
+      case "icon":
+        thumb = <i className={props.product.thumb.classes} />;
+        break;
+      case "image":
+        thumb = (
+          <img
+            src={props.product.thumb.src || "https://via.placeholder.com/150"}
+            alt={props.product.thumb.alt || props.product.name}
+            title={props.product.thumb.title || props.product.name}
+          />
+        );
+        break;
+      default:
+        break;
+    }
+  }
+  return <div className={props.classes}>{thumb}</div>;
 };
 
 Thumb.propTypes = {
-  alt: PropTypes.string,
-  title: PropTypes.string,
   classes: PropTypes.string,
-  src: PropTypes.string.isRequired
+  product: PropTypes.object
 };
 
 export default Thumb;

@@ -163,7 +163,9 @@ export class Cart extends Component {
 
         <div className="float-cart__content">
           <div className="float-cart__header">
-            <span className="header-title">{cartTextLabel}</span>
+            <span className="header-title font-weight-bold h4">
+              {cartTextLabel}
+            </span>
             <span className="bag">
               <span className="bag__quantity">{cartTotal.productQuantity}</span>
             </span>
